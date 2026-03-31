@@ -1,3 +1,4 @@
+import { CONTACT } from '../config'
 import './Contact.css'
 
 export default function Contact() {
@@ -16,7 +17,7 @@ export default function Contact() {
           </p>
 
           <div className="contact__links">
-            <a href="mailto:amparo.garcia.dev@gmail.com" className="contact__link">
+            <a href={`mailto:${CONTACT.email}`} className="contact__link">
               <div className="contact__link-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -25,11 +26,11 @@ export default function Contact() {
               </div>
               <div>
                 <span className="contact__link-label">Email</span>
-                <span className="contact__link-value">amparo.garcia.dev@gmail.com</span>
+                <span className="contact__link-value">{CONTACT.email}</span>
               </div>
             </a>
 
-            <a href="tel:+34677550171" className="contact__link">
+            <a href={`tel:${CONTACT.phone}`} className="contact__link">
               <div className="contact__link-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.35 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -37,7 +38,7 @@ export default function Contact() {
               </div>
               <div>
                 <span className="contact__link-label">Teléfono</span>
-                <span className="contact__link-value">+34 677 55 01 71</span>
+                <span className="contact__link-value">{CONTACT.phoneDisplay}</span>
               </div>
             </a>
 
@@ -50,12 +51,12 @@ export default function Contact() {
               </div>
               <div>
                 <span className="contact__link-label">Ubicación</span>
-                <span className="contact__link-value">Picanya, Valencia</span>
+                <span className="contact__link-value">{CONTACT.location}</span>
               </div>
             </div>
           </div>
 
-          <a href="mailto:amparo.garcia.dev@gmail.com" className="btn btn-primary contact__cta">
+          <a href={`mailto:${CONTACT.email}`} className="btn btn-primary contact__cta">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <line x1="22" y1="2" x2="11" y2="13"/>
               <polygon points="22 2 15 22 11 13 2 9 22 2"/>

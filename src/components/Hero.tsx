@@ -1,3 +1,5 @@
+import monogram from '../../public/amparo-garcia-vidal-monogram-transparent.png'
+import cvPdf from '../../public/CV_AmparoGV.pdf'
 import './Hero.css'
 
 export default function Hero() {
@@ -11,7 +13,7 @@ export default function Hero() {
 
       <div className="hero__visual" aria-hidden="true">
         <img
-          src="/amparo-garcia-vidal-monogram-transparent.png"
+          src={monogram}
           alt=""
           className="hero__monogram"
         />
@@ -58,7 +60,7 @@ export default function Hero() {
             Escribir
           </a>
           <a
-            href="/CV_AmparoGV.pdf"
+            href={cvPdf}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-ghost"

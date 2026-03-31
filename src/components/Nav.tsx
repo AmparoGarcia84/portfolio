@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import favicon from '../../public/amparo-garcia-vidal-favicon.svg'
+import { CONTACT } from '../config'
 import './Nav.css'
 
 const links = [
@@ -23,7 +25,7 @@ export default function Nav() {
       <div className="nav__inner">
         <a href="#" className="nav__logo">
           <img
-            src="/amparo-garcia-vidal-favicon.svg"
+            src={favicon}
             alt="AG"
             className="nav__logo-mark"
           />
@@ -38,7 +40,7 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a href="mailto:amparo.garcia.dev@gmail.com" className="btn btn-primary nav__cta">
+          <a href={`mailto:${CONTACT.email}`} className="btn btn-primary nav__cta">
             Contactar
           </a>
         </nav>

@@ -26,7 +26,7 @@ const jobs: Job[] = [
   {
     company: 'GMV Aerospace & Defence',
     role: 'Desarrolladora de Software',
-    period: 'Mar 2020 — Sep 2020',
+    period: 'Mar 2019 — Sep 2020',
     sector: 'Defensa · Software táctico',
     highlights: [
       'Desarrollo del New Tactical Viewer dentro del sistema EUCCIS (mando y control NATO).',
@@ -90,7 +90,7 @@ export default function Experience() {
       <p className="section-label">Trayectoria</p>
       <h2 className="section-title">Experiencia profesional</h2>
       <p className="section-subtitle">
-        Más de 5 años en desarrollo de software en sectores técnicamente exigentes:
+        Más de 6 años en desarrollo de software en sectores técnicamente exigentes:
         fintech, defensa y smart city.
       </p>
 

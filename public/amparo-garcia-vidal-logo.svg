@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500">
+  <rect width="1400" height="500" fill="#F8F6F1"/>
+
+  <!-- Monogram mark -->
+  <g transform="translate(90,95)">
+    <rect x="0" y="0" width="300" height="300" rx="36" fill="#FFFDFC" stroke="#DED6CC" stroke-width="4"/>
+
+    <!-- A -->
+    <path d="M75 230 L150 60 L225 230" fill="none" stroke="#2F2A26" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="108" y1="155" x2="192" y2="155" stroke="#E9B08C" stroke-width="16" stroke-linecap="round"/>
+
+    <!-- subtle G curve -->
+    <path d="M212 110 
+             C195 88, 164 78, 138 85
+             C103 95, 78 127, 79 165
+             C80 207, 112 236, 152 236
+             C180 236, 202 226, 217 210
+             L217 180
+             L178 180" 
+          fill="none" stroke="#A8B7A0" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+    <!-- accent -->
+    <circle cx="242" cy="82" r="10" fill="#9C6B42"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(460,135)">
+    <text x="0" y="90" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#2F2A26" letter-spacing="1">Amparo Garcia Vidal</text>
+    <line x1="2" y1="128" x2="470" y2="128" stroke="#DED6CC" stroke-width="3"/>
+    <text x="0" y="182" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#9C6B42" letter-spacing="4">FULLSTACK DEVELOPER</text>
+    <text x="0" y="235" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#A8B7A0" letter-spacing="1">Minimal, cálido y tecnológico</text>
+  </g>
+</svg>

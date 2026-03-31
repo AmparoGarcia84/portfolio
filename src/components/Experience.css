@@ -1,0 +1,165 @@
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 64px;
+}
+
+.job {
+  display: flex;
+  gap: 24px;
+}
+
+/* Timeline */
+.job__timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.job__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+  flex-shrink: 0;
+}
+
+.job__line {
+  width: 2px;
+  flex: 1;
+  background: var(--divider);
+  margin: 8px 0;
+  min-height: 48px;
+}
+
+/* Content */
+.job__content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  flex: 1;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.job__content:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 16px rgba(47, 42, 38, 0.07);
+}
+
+.job__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.job__company {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.job__role {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.job__meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.job__highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.job__highlights li {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+
+.job__highlights li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-hover);
+  font-size: 12px;
+}
+
+.job__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--divider);
+}
+
+/* Education */
+.education {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.education__title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.education__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.education__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.education__degree {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.education__school {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .job__timeline {
+    display: none;
+  }
+  .job__header {
+    flex-direction: column;
+  }
+}

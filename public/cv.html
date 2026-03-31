@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Amparo García Vidal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────────────── */
+    :root {
+      --bg:         #F8F6F1;
+      --surface:    #FFFDFC;
+      --alt:        #F1ECE4;
+      --border:     #DED6CC;
+      --divider:    #E9E2D8;
+      --primary:    #E9B08C;
+      --secondary:  #A8B7A0;
+      --accent:     #9C6B42;
+      --text:       #2F2A26;
+      --muted:      #6F6963;
+      --soft:       #9A928B;
+      --success:    #7FA37C;
+      --sans:       'Inter', system-ui, sans-serif;
+      --mono:       'JetBrains Mono', monospace;
+    }
+
+    /* ── Page ───────────────────────────────────────────────────────── */
+    html { background: #e0d8ce; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 32px auto;
+      background: var(--surface);
+      display: grid;
+      grid-template-columns: 188px 1fr;
+      box-shadow: 0 8px 40px rgba(47,42,38,0.18);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ────────────────────────────────────────────────────── */
+    .sidebar {
+      background: var(--alt);
+      border-right: 1px solid var(--border);
+      padding: 24px 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sidebar__logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .sidebar__logo img {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+    }
+
+    .sidebar__name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Section label */
+    .s-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 7px;
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .contact-list li {
+      font-size: 10.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      line-height: 1.4;
+    }
+
+    .contact-list .icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Skills */
+    .skill-group {
+      margin-bottom: 7px;
+    }
+
+    .skill-group__name {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Languages */
+    .lang-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .lang-list li {
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    .lang-list li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Education in sidebar */
+    .edu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .edu-item__degree {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .edu-item__school {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* ── Main ───────────────────────────────────────────────────────── */
+    .main {
+      padding: 36px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    /* Header */
+    .header__name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .header__name span {
+      color: var(--accent);
+    }
+
+    .header__title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .header__summary {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 420px;
+    }
+
+    /* Section */
+    .section {
+      border-top: 1px solid var(--divider);
+      padding-top: 18px;
+    }
+
+    .section__title {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .job__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 1px;
+      flex-wrap: wrap;
+    }
+
+    .job__company {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .job__period {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--soft);
+      white-space: nowrap;
+      background: var(--alt);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    .job__role {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .job__sector {
+      font-size: 9.5px;
+      color: var(--soft);
+      margin-bottom: 7px;
+      font-style: italic;
+    }
+
+    .job__bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .job__bullets li {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .job__bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 10px;
+    }
+
+    /* Freelance projects inside the job */
+    .projects-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .project-inline {
+      background: var(--alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .project-inline__name {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .project-inline__type {
+      font-size: 9px;
+      font-family: var(--mono);
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .project-inline__desc {
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .job__stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    /* ── Print ──────────────────────────────────────────────────────── */
+    @media print {
+      html { background: white; }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        min-height: 100vh;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Sidebar ───────────────────────────────────────────────── -->
+    <aside class="sidebar">
+
+      <div class="sidebar__logo">
+        <img src="/amparo-garcia-vidal-favicon.svg" alt="AG" />
+        <span class="sidebar__name">Amparo García Vidal</span>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="s-label">Contacto</p>
+        <ul class="contact-list">
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Picanya, Valencia
+          </li>
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.35 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +34 677 55 01 71
+          </li>
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            amparo.garcia.dev@<wbr>gmail.com
+          </li>
+        </ul>
+      </div>
+
+      <!-- Skills -->
+      <div>
+        <p class="s-label">Skills</p>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Frontend</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS/SCSS</span>
+            <span class="tag">Ionic</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Backend</p>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JWT</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Bases de datos</p>
+          <div class="tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Elasticsearch</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Mobile</p>
+          <div class="tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Java</span>
+            <span class="tag">Cordova</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Cloud & DevOps</p>
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group__name">Testing</p>
+          <div class="tags">
+            <span class="tag">Vitest</span>
+            <span class="tag">Jest</span>
+            <span class="tag">RTL</span>
+            <span class="tag">Karma</span>
+            <span class="tag">Jasmine</span>
+            <span class="tag">JUnit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div>
+        <p class="s-label">Idiomas</p>
+        <ul class="lang-list">
+          <li><strong>Español</strong> — Nativo</li>
+          <li><strong>Inglés</strong> — Lectura y escritura avanzadas · Conversación B1</li>
+        </ul>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <p class="s-label">Formación</p>
+        <ul class="edu-list">
+          <li>
+            <p class="edu-item__degree">Máster en Ingeniería de Telecomunicaciones</p>
+            <p class="edu-item__school">UPV · 2015 – 2017</p>
+          </li>
+          <li>
+            <p class="edu-item__degree">Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación</p>
+            <p class="edu-item__school">UPV · 2010 – 2015</p>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- ── Main ──────────────────────────────────────────────────── -->
+    <main class="main">
+
+      <!-- Header -->
+      <header>
+        <h1 class="header__name">Amparo García <span>Vidal</span></h1>
+        <p class="header__title">Fullstack Developer · Freelance</p>
+        <p class="header__summary">
+          Desarrolladora de software especializada en frontend con experiencia fullstack.
+          Construyo aplicaciones web y herramientas digitales a medida — desde el diseño hasta producción.
+          Trayectoria en entornos técnicamente exigentes: fintech, defensa y smart city.
+        </p>
+      </header>
+
+      <!-- Experience -->
+      <section class="section">
+        <p class="section__title">Experiencia profesional</p>
+
+        <!-- Freelance -->
+        <div class="job">
+          <div class="job__header">
+            <span class="job__company">Freelance</span>
+            <span class="job__period">Oct 2025 — Actualidad</span>
+          </div>
+          <p class="job__role">Fullstack Developer</p>
+          <p class="job__sector">Desarrollo de aplicaciones web y herramientas digitales a medida</p>
+          <ul class="job__bullets">
+            <li>Diseño, desarrollo y despliegue de aplicaciones web completas para clientes de distintos sectores.</li>
+            <li>Arquitectura fullstack con React/Angular/Next.js en frontend y Node.js + PostgreSQL en backend.</li>
+            <li>Implementación de sistemas de autenticación, roles y permisos, integración con APIs externas y despliegue en producción.</li>
+          </ul>
+
+          <div class="projects-inline">
+            <div class="project-inline">
+              <p class="project-inline__name">CRM Seguros &amp; Energía</p>
+              <p class="project-inline__type">Web App · CRM</p>
+              <p class="project-inline__desc">CRM multiusuario para gestoría de seguros y energía. Gestión de clientes, ventas, pólizas, contratos energéticos, casos e incidencias y control horario. Roles OWNER/EMPLOYEE con permisos granulares, autenticación JWT e i18n.</p>
+              <div class="job__stack">
+                <span class="tag">React 19</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">JWT</span>
+                <span class="tag">i18next</span>
+              </div>
+            </div>
+
+            <div class="project-inline">
+              <p class="project-inline__name">Nutrition Dashboard</p>
+              <p class="project-inline__type">SaaS · Web App</p>
+              <p class="project-inline__desc">Plataforma SaaS para nutricionistas. Gestión de pacientes. Integración con APIs externas (Edamam API). Base de datos en Supabase con Row Level Security.</p>
+              <div class="job__stack">
+                <span class="tag">Next.js 16</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Recharts</span>
+              </div>
+            </div>
+
+            <div class="project-inline">
+              <p class="project-inline__name">Nutrition App</p>
+              <p class="project-inline__type">Mobile App · Android &amp; iOS</p>
+              <p class="project-inline__desc">App móvil multiplataforma para seguimiento de salud y nutrición personal. Visualización con ECharts y CI/CD con Docker multi-stage.</p>
+              <div class="job__stack">
+                <span class="tag">Angular 20</span>
+                <span class="tag">Ionic</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">ECharts</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Handpoint -->
+        <div class="job">
+          <div class="job__header">
+            <span class="job__company">Handpoint S.L.</span>
+            <span class="job__period">Sep 2020 — Jul 2023</span>
+          </div>
+          <p class="job__role">Desarrolladora de Software</p>
+          <p class="job__sector">Fintech · Terminales de pago</p>
+          <ul class="job__bullets">
+            <li>Desarrollo de apps multiplataforma Android e iOS con Ionic, Angular y Chart.js. Pruebas unitarias con Karma y Jasmine.</li>
+            <li>Mantenimiento del SDK Android: migración de Java a Kotlin con pruebas JUnit y Mockito.</li>
+            <li>APIs REST desplegadas en AWS con Docker y Terraform.</li>
+            <li>Participación full-stack garantizando consistencia entre frontend y backend.</li>
+          </ul>
+          <div class="job__stack">
+            <span class="tag">Ionic</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Java</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+          </div>
+        </div>
+
+        <!-- GMV -->
+        <div class="job">
+          <div class="job__header">
+            <span class="job__company">GMV Aerospace &amp; Defence</span>
+            <span class="job__period">Mar 2020 — Sep 2020</span>
+          </div>
+          <p class="job__role">Desarrolladora de Software</p>
+          <p class="job__sector">Defensa · Software táctico (EUCCIS)</p>
+          <ul class="job__bullets">
+            <li>Desarrollo del New Tactical Viewer en el sistema de mando y control EUCCIS (NATO).</li>
+            <li>Frontend con Angular, TypeScript y librerías especializadas AG Grid, Kendo UI, Luciad RIA/Fusion.</li>
+            <li>Colaboración con equipo backend en Java.</li>
+          </ul>
+          <div class="job__stack">
+            <span class="tag">Angular</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">AG Grid</span>
+            <span class="tag">Kendo UI</span>
+            <span class="tag">Luciad RIA</span>
+            <span class="tag">Java</span>
+          </div>
+        </div>
+
+        <!-- Electrotecnia Monrabal -->
+        <div class="job">
+          <div class="job__header">
+            <span class="job__company">Electrotecnia Monrabal S.L.U.</span>
+            <span class="job__period">Sep 2017 — Feb 2019</span>
+          </div>
+          <p class="job__role">Ingeniera de Proyectos I+D</p>
+          <p class="job__sector">Smart City · Eficiencia energética</p>
+          <ul class="job__bullets">
+            <li>Desarrollo del dashboard SIGENTY, sistema de eficiencia energética Smart City 4.0.</li>
+            <li>Frontend con Meteor y Chart.js para visualización y análisis de datos en tiempo real.</li>
+          </ul>
+          <div class="job__stack">
+            <span class="tag">Meteor</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Chart.js</span>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -10,7 +10,7 @@ const groups: SkillGroup[] = [
   {
     label: 'Frontend',
     icon: '🎨',
-    skills: ['React', 'Angular', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS / SCSS', 'Ionic', 'Vite'],
+    skills: ['React', 'Next.js', 'Vite', 'Angular', 'Ionic', 'TypeScript', 'JavaScript', 'HTML5', 'CSS / SCSS'],
   },
   {
     label: 'Backend',

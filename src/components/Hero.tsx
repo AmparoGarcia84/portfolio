@@ -1,5 +1,6 @@
 import monogram from '../../public/amparo-garcia-vidal-monogram-transparent.png'
 import cvPdf from '../../public/CV_AmparoGV.pdf'
+import cvPdfEn from '../../public/CV_AmparoGV_EN.pdf'
 import './Hero.css'
 
 export default function Hero() {
@@ -40,7 +41,7 @@ export default function Hero() {
         </p>
 
         <div className="hero__stack">
-          {['React', 'Angular', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'].map(t => (
+          {['React', 'Next.js', 'Vite', 'Angular', 'TypeScript', 'Node.js', 'PostgreSQL'].map(t => (
             <span key={t} className="tag">{t}</span>
           ))}
         </div>
@@ -70,6 +71,15 @@ export default function Hero() {
               <polyline points="14 2 14 8 20 8"/>
             </svg>
             Descargar CV
+          </a>
+          <a
+            href={cvPdfEn}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost"
+            lang="en"
+          >
+            CV (EN)
           </a>
         </div>
       </div>

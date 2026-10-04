@@ -114,6 +114,11 @@
       line-height: 1.4;
     }
 
+    .contact-list a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .contact-list .icon {
       color: var(--accent);
       flex-shrink: 0;
@@ -313,7 +318,7 @@
     }
 
     .job__bullets li::before {
-      content: '→';
+      content: '•';
       position: absolute;
       left: 0;
       color: var(--primary);
@@ -363,21 +368,64 @@
       gap: 3px;
     }
 
+    .project-inline__link {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1.3;
+      color: var(--accent);
+      text-decoration: none;
+      margin: -2px 0 5px;
+    }
+
     /* ── Print ──────────────────────────────────────────────────────── */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     @media print {
-      html { background: white; }
+      html {
+        /* Root background paints every printed page, so the sidebar
+           colour runs full height on page 2 as well */
+        background: linear-gradient(to right,
+          var(--alt) 0 188px,
+          var(--border) 188px 189px,
+          var(--surface) 189px);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
 
       .page {
         width: 100%;
+        min-height: 0;
         margin: 0;
+        background: transparent;
         box-shadow: none;
         border-radius: 0;
-        min-height: 100vh;
+        overflow: visible;
       }
 
-      @page {
-        size: A4;
-        margin: 0;
+      .sidebar {
+        background: transparent;
+        border-right: none;
+      }
+
+      /* Repeat the top/bottom padding on every printed page */
+      .main {
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+
+      .sidebar > div,
+      header,
+      .job,
+      .project-inline {
+        break-inside: avoid;
+      }
+
+      .section__title {
+        break-after: avoid;
       }
     }
   </style>
@@ -417,6 +465,18 @@
             </svg>
             amparo.garcia.dev@<wbr>gmail.com
           </li>
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <a href="https://amparogarcia84.github.io/portfolio/">amparogarcia84.github.io/<wbr>portfolio</a>
+          </li>
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/amparo-garcia-vidal">in/amparo-garcia-vidal</a>
+          </li>
+          <li>
+            <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.6 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <a href="https://github.com/AmparoGarcia84">github.com/<wbr>AmparoGarcia84</a>
+          </li>
         </ul>
       </div>
 
@@ -428,13 +488,14 @@
           <p class="skill-group__name">Frontend</p>
           <div class="tags">
             <span class="tag">React</span>
-            <span class="tag">Angular</span>
             <span class="tag">Next.js</span>
+            <span class="tag">Vite</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Ionic</span>
             <span class="tag">TypeScript</span>
             <span class="tag">JavaScript</span>
             <span class="tag">HTML5</span>
             <span class="tag">CSS/SCSS</span>
-            <span class="tag">Ionic</span>
           </div>
         </div>
 
@@ -494,8 +555,8 @@
       <div>
         <p class="s-label">Idiomas</p>
         <ul class="lang-list">
-          <li><strong>Español</strong> — Nativo</li>
-          <li><strong>Inglés</strong> — Lectura y escritura avanzadas · Conversación B1</li>
+          <li><strong>Español:</strong> nativo</li>
+          <li><strong>Inglés:</strong> B2</li>
         </ul>
       </div>
 
@@ -505,11 +566,11 @@
         <ul class="edu-list">
           <li>
             <p class="edu-item__degree">Máster en Ingeniería de Telecomunicaciones</p>
-            <p class="edu-item__school">UPV · 2015 – 2017</p>
+            <p class="edu-item__school">UPV · 2015–2017</p>
           </li>
           <li>
             <p class="edu-item__degree">Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación</p>
-            <p class="edu-item__school">UPV · 2010 – 2015</p>
+            <p class="edu-item__school">UPV · 2010–2015</p>
           </li>
         </ul>
       </div>
@@ -524,9 +585,9 @@
         <h1 class="header__name">Amparo García <span>Vidal</span></h1>
         <p class="header__title">Fullstack Developer · Freelance</p>
         <p class="header__summary">
-          Desarrolladora de software especializada en frontend con experiencia fullstack.
-          Construyo aplicaciones web y herramientas digitales a medida — desde el diseño hasta producción.
-          Trayectoria en entornos técnicamente exigentes: fintech, defensa y smart city.
+          Desarrolladora frontend con experiencia fullstack. Empecé en 2017 con dashboards
+          de eficiencia energética y después trabajé en software de defensa (GMV) y de
+          terminales de pago (Handpoint). Desde 2025 hago aplicaciones web a medida como freelance.
         </p>
       </header>
 
@@ -538,52 +599,57 @@
         <div class="job">
           <div class="job__header">
             <span class="job__company">Freelance</span>
-            <span class="job__period">Oct 2025 — Actualidad</span>
+            <span class="job__period">Oct 2025 – Actualidad</span>
           </div>
           <p class="job__role">Fullstack Developer</p>
-          <p class="job__sector">Desarrollo de aplicaciones web y herramientas digitales a medida</p>
+          <p class="job__sector">Aplicaciones web a medida</p>
           <ul class="job__bullets">
-            <li>Diseño, desarrollo y despliegue de aplicaciones web completas para clientes de distintos sectores.</li>
-            <li>Arquitectura fullstack con React/Angular/Next.js en frontend y Node.js + PostgreSQL en backend.</li>
-            <li>Implementación de sistemas de autenticación, roles y permisos, integración con APIs externas y despliegue en producción.</li>
+            <li>Llevo cada proyecto de principio a fin: requisitos con el cliente, diseño, desarrollo y despliegue.</li>
+            <li>Frontend en React o Angular y backend en Node.js con PostgreSQL.</li>
           </ul>
 
           <div class="projects-inline">
             <div class="project-inline">
               <p class="project-inline__name">CRM Seguros &amp; Energía</p>
               <p class="project-inline__type">Web App · CRM</p>
+              <a class="project-inline__link" href="https://dev.insurance-energy-crm.pages.dev">Demo: dev.insurance-energy-crm.pages.dev</a>
               <p class="project-inline__desc">CRM multiusuario para gestoría de seguros y energía. Gestión de clientes, ventas, pólizas, contratos energéticos, casos e incidencias y control horario. Roles OWNER/EMPLOYEE con permisos granulares, autenticación JWT e i18n.</p>
               <div class="job__stack">
                 <span class="tag">React 19</span>
+                <span class="tag">Vite</span>
                 <span class="tag">TypeScript</span>
+                <span class="tag">i18next</span>
                 <span class="tag">Node.js</span>
                 <span class="tag">Express</span>
                 <span class="tag">PostgreSQL</span>
+                <span class="tag">Prisma</span>
                 <span class="tag">JWT</span>
-                <span class="tag">i18next</span>
               </div>
             </div>
 
             <div class="project-inline">
               <p class="project-inline__name">Nutrition Dashboard</p>
               <p class="project-inline__type">SaaS · Web App</p>
-              <p class="project-inline__desc">Plataforma SaaS para nutricionistas. Gestión de pacientes. Integración con APIs externas (Edamam API). Base de datos en Supabase con Row Level Security.</p>
+              <p class="project-inline__desc">Plataforma SaaS para nutricionistas: gestión de pacientes, seguimiento de medidas corporales y actividad física, y generación de dietas con la API de Edamam. Supabase con Row Level Security para aislar los datos de cada consulta.</p>
               <div class="job__stack">
+                <span class="tag">React 19</span>
                 <span class="tag">Next.js 16</span>
                 <span class="tag">TypeScript</span>
-                <span class="tag">Supabase</span>
-                <span class="tag">PostgreSQL</span>
                 <span class="tag">Recharts</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">Edamam API</span>
               </div>
             </div>
 
             <div class="project-inline">
               <p class="project-inline__name">Nutrition App</p>
-              <p class="project-inline__type">Mobile App · Android &amp; iOS</p>
-              <p class="project-inline__desc">App móvil multiplataforma para seguimiento de salud y nutrición personal. Visualización con ECharts y CI/CD con Docker multi-stage.</p>
+              <p class="project-inline__type">Mobile App · Ionic + Capacitor</p>
+              <p class="project-inline__desc">App móvil multiplataforma para que los pacientes sigan su salud y nutrición. Gráficas con ECharts y CI con GitHub Actions y Docker multi-stage (lint, tests y build servido con Nginx).</p>
               <div class="job__stack">
                 <span class="tag">Angular 20</span>
                 <span class="tag">Ionic</span>
+                <span class="tag">Capacitor</span>
                 <span class="tag">TypeScript</span>
                 <span class="tag">ECharts</span>
                 <span class="tag">Docker</span>
@@ -596,24 +662,24 @@
         <div class="job">
           <div class="job__header">
             <span class="job__company">Handpoint S.L.</span>
-            <span class="job__period">Sep 2020 — Jul 2023</span>
+            <span class="job__period">Sep 2020 – Jul 2023</span>
           </div>
           <p class="job__role">Desarrolladora de Software</p>
           <p class="job__sector">Fintech · Terminales de pago</p>
           <ul class="job__bullets">
-            <li>Desarrollo de apps multiplataforma Android e iOS con Ionic, Angular y Chart.js. Pruebas unitarias con Karma y Jasmine.</li>
+            <li>Desarrollo de apps multiplataforma Android e iOS con Angular, Ionic y Chart.js. Pruebas unitarias con Karma y Jasmine.</li>
             <li>Mantenimiento del SDK Android: migración de Java a Kotlin con pruebas JUnit y Mockito.</li>
             <li>APIs REST desplegadas en AWS con Docker y Terraform.</li>
-            <li>Participación full-stack garantizando consistencia entre frontend y backend.</li>
+            <li>También trabajé en el backend con Node.js.</li>
           </ul>
           <div class="job__stack">
-            <span class="tag">Ionic</span>
             <span class="tag">Angular</span>
+            <span class="tag">Ionic</span>
             <span class="tag">Kotlin</span>
             <span class="tag">Java</span>
             <span class="tag">Node.js</span>
-            <span class="tag">AWS</span>
             <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
             <span class="tag">Terraform</span>
           </div>
         </div>
@@ -622,7 +688,7 @@
         <div class="job">
           <div class="job__header">
             <span class="job__company">GMV Aerospace &amp; Defence</span>
-            <span class="job__period">Mar 2019 — Sep 2020</span>
+            <span class="job__period">Mar 2019 – Sep 2020</span>
           </div>
           <p class="job__role">Desarrolladora de Software</p>
           <p class="job__sector">Defensa · Software táctico (EUCCIS)</p>
@@ -645,7 +711,7 @@
         <div class="job">
           <div class="job__header">
             <span class="job__company">Electrotecnia Monrabal S.L.U.</span>
-            <span class="job__period">Sep 2017 — Feb 2019</span>
+            <span class="job__period">Sep 2017 – Feb 2019</span>
           </div>
           <p class="job__role">Ingeniera de Proyectos I+D</p>
           <p class="job__sector">Smart City · Eficiencia energética</p>

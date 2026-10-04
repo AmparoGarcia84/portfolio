@@ -132,6 +132,10 @@
   letter-spacing: 0.08em;
 }
 
+.education__title--spaced {
+  margin-top: 28px;
+}
+
 .education__items {
   display: flex;
   flex-direction: column;

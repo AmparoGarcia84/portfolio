@@ -137,6 +137,26 @@
   border-top: 1px solid var(--divider);
 }
 
+.project-card__demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin: 14px 24px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-glow);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.project-card__demo:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+}
+
 .project-card__stack {
   display: flex;
   flex-wrap: wrap;

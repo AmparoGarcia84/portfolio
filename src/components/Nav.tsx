@@ -16,7 +16,7 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -34,7 +34,7 @@ export default function Nav() {
           </span>
         </a>
 
-        <nav className={`nav__links${open ? ' nav__links--open' : ''}`}>
+        <nav id="nav-links" className={`nav__links${open ? ' nav__links--open' : ''}`}>
           {links.map(l => (
             <a key={l.href} href={l.href} className="nav__link" onClick={() => setOpen(false)}>
               {l.label}
@@ -49,6 +49,8 @@ export default function Nav() {
           className={`nav__burger${open ? ' nav__burger--open' : ''}`}
           onClick={() => setOpen(!open)}
           aria-label="Menú"
+          aria-expanded={open}
+          aria-controls="nav-links"
         >
           <span />
           <span />

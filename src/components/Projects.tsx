@@ -12,26 +12,28 @@ interface Project {
   status: 'in-progress' | 'completed'
   mockup: React.ReactNode
   mockupBg: string
+  demoUrl?: string
 }
 
 const projects: Project[] = [
   {
     title: 'CRM Seguros & Energía',
-    description: 'CRM completo para gestoría de seguros y energía. Gestión de clientes, ventas, pólizas, contratos energéticos, casos e incidencias, y control horario de empleados.',
+    description: 'CRM multiusuario para gestoría de seguros y energía. Gestión de clientes, ventas, pólizas, contratos energéticos, casos e incidencias y control horario. Roles OWNER/EMPLOYEE con permisos granulares, autenticación JWT e i18n.',
     longDesc: 'PostgreSQL por la fuerte relacionalidad del dominio (clientes → pólizas → contratos). Backend propio en Express para lógica de negocio personalizada que no encaja en un BaaS. JWT stateless adecuado para roles diferenciados a nivel de middleware.',
     type: 'Web App · CRM',
-    stack: ['React 19', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'JWT', 'i18next'],
+    stack: ['React 19', 'Vite', 'TypeScript', 'i18next', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'JWT'],
     accentColor: '#d2b87a',
     status: 'in-progress',
     mockup: <CRMMockup />,
     mockupBg: '#EDE6DC',
+    demoUrl: 'https://dev.insurance-energy-crm.pages.dev',
   },
   {
     title: 'Nutrition Dashboard',
-    description: 'Plataforma SaaS para nutricionistas. Gestión integral de pacientes, seguimiento de medidas corporales, actividad física y generación de dietas con API externa Edamam.',
+    description: 'Plataforma SaaS para nutricionistas: gestión de pacientes, seguimiento de medidas corporales y actividad física, y generación de dietas con la API de Edamam. Supabase con Row Level Security para aislar los datos de cada consulta.',
     longDesc: 'Next.js App Router por SSR en una SaaS donde el tiempo de carga importa. Supabase con RLS como garantía de aislamiento multi-tenant a nivel de base de datos, sin lógica extra en servidor. Edamam API para evitar construir y mantener un dataset nutricional desde cero.',
     type: 'SaaS · Web App',
-    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase', 'PostgreSQL', 'Recharts', 'Edamam API'],
+    stack: ['React 19', 'Next.js 16', 'TypeScript', 'Recharts', 'PostgreSQL', 'Supabase', 'Edamam API'],
     accentColor: '#A8B7A0',
     status: 'in-progress',
     mockup: <NutritionDashboardMockup />,
@@ -39,10 +41,10 @@ const projects: Project[] = [
   },
   {
     title: 'Nutrition App',
-    description: 'App móvil multiplataforma para seguimiento de salud y nutrición personal. Para los pacientes que quieren tener un seguimiento personalizado de su salud y nutrición.',
-    longDesc: 'Angular + Ionic por reutilización de código entre Android, iOS y web con un único equipo. ECharts sobre Recharts por mejor rendimiento en canvas para visualizaciones complejas en móvil. Docker multi-stage para builds reproducibles en el pipeline de distribución a tiendas.',
-    type: 'Mobile App · Web',
-    stack: ['Angular 20', 'Ionic', 'TypeScript', 'Capacitor', 'ECharts', 'Docker'],
+    description: 'App móvil multiplataforma para que los pacientes sigan su salud y nutrición. Gráficas con ECharts y CI con GitHub Actions y Docker multi-stage (lint, tests y build servido con Nginx).',
+    longDesc: 'Angular + Ionic por reutilización de código entre Android, iOS y web con un único equipo. ECharts sobre Recharts por mejor rendimiento en canvas para visualizaciones complejas en móvil. Docker multi-stage para builds y tests reproducibles en CI.',
+    type: 'Mobile App · Ionic + Capacitor',
+    stack: ['Angular 20', 'Ionic', 'Capacitor', 'TypeScript', 'ECharts', 'Docker'],
     accentColor: '#9C6B42',
     status: 'in-progress',
     mockup: <NutritionAppMockup />,
@@ -79,6 +81,22 @@ function ProjectCard({ project }: { project: Project }) {
       <h3 className="project-card__title">{project.title}</h3>
       <p className="project-card__desc">{project.description}</p>
       <p className="project-card__long">{project.longDesc}</p>
+
+      {project.demoUrl && (
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-card__demo"
+        >
+          Ver demo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      )}
 
       <div className="project-card__stack">
         {project.stack.map(t => (

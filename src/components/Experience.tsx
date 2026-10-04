@@ -11,17 +11,28 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    company: 'Freelance',
+    role: 'Fullstack Developer',
+    period: 'Oct 2025 — Actualidad',
+    sector: 'Aplicaciones web a medida',
+    highlights: [
+      'Llevo cada proyecto de principio a fin: requisitos con el cliente, diseño, desarrollo y despliegue.',
+      'Frontend en React o Angular y backend en Node.js con PostgreSQL.',
+    ],
+    stack: ['React', 'Next.js', 'Vite', 'Angular', 'Ionic', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase'],
+  },
+  {
     company: 'Handpoint S.L.',
     role: 'Desarrolladora de Software',
     period: 'Sep 2020 — Jul 2023',
-    sector: 'Fintech · Pagos',
+    sector: 'Fintech · Terminales de pago',
     highlights: [
-      'Apps multiplataforma Android e iOS con Ionic y Angular para terminales de pago.',
+      'Apps multiplataforma Android e iOS con Angular e Ionic para terminales de pago.',
       'Mantenimiento del SDK Android: migración de Java a Kotlin con pruebas JUnit + Mockito.',
       'APIs REST desplegadas en AWS con Docker y gestionadas con Terraform.',
-      'Participación full-stack garantizando consistencia entre frontend y backend.',
+      'También trabajé en el backend con Node.js.',
     ],
-    stack: ['Ionic', 'Angular', 'Kotlin', 'Java', 'Node.js', 'AWS', 'Docker', 'Terraform'],
+    stack: ['Angular', 'Ionic', 'Kotlin', 'Java', 'Node.js', 'Docker', 'AWS', 'Terraform'],
   },
   {
     company: 'GMV Aerospace & Defence',
@@ -36,7 +47,7 @@ const jobs: Job[] = [
     stack: ['Angular', 'TypeScript', 'AG Grid', 'Kendo UI', 'Luciad RIA', 'Java'],
   },
   {
-    company: 'Electrotecnia Monrabal',
+    company: 'Electrotecnia Monrabal S.L.U.',
     role: 'Ingeniera de Proyectos I+D',
     period: 'Sep 2017 — Feb 2019',
     sector: 'Smart City · Energía',
@@ -110,6 +121,18 @@ export default function Experience() {
           <div className="education__item">
             <span className="education__degree">Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación</span>
             <span className="education__school">Universitat Politècnica de València · 2010–2015</span>
+          </div>
+        </div>
+
+        <h3 className="education__title education__title--spaced">Idiomas</h3>
+        <div className="education__items">
+          <div className="education__item">
+            <span className="education__degree">Español</span>
+            <span className="education__school">Nativo</span>
+          </div>
+          <div className="education__item">
+            <span className="education__degree">Inglés</span>
+            <span className="education__school">B2</span>
           </div>
         </div>
       </div>

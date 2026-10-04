@@ -18,7 +18,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="footer">
-        <p>© 2025 Amparo García Vidal</p>
+        <p>© {new Date().getFullYear()} Amparo García Vidal</p>
       </footer>
     </>
   )
